@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Youtube Shorts as Video",
-  "description": "Open Youtube Shorts as a separate video in a new tab.",
+  "description": "Open Youtube Shorts as a normal youtube video in a new tab. Replaces the short link with the watch&v=[video] link.",
   "version": "0.1.0",
   "author": "Ru",
   "content_scripts": [
