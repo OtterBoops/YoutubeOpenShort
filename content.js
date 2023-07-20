@@ -54,7 +54,7 @@ const createButton = () => {
     // Wait for the actions element to appear in the sidebar
     waitForElm(ytshort, '#actions').then((sidebar) => {
       // Insert the button as the first child of the actions element
-      actions.insertBefore(button, sidebar.firstChild);
+      sidebar.insertBefore(button, sidebar.firstChild);
     });
   });
 };
