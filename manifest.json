@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Youtube Shorts as Video",
+  "description": "Open Youtube Shorts as a separate video in a new tab.",
+  "version": "0.1.0",
+  "author": "Ru",
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["*://*.youtube.com/shorts/*"]
+    }
+  ]
+}
