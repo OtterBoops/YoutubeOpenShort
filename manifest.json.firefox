@@ -12,5 +12,11 @@
       "js": ["content.js"],
       "matches": ["https://*.youtube.com/shorts/*"]
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "yos@ottr.space",
+      "strict_min_version": "109.0"
+    }
+  }
 }
