@@ -18,4 +18,4 @@ If you encounter any bugs or issues while using the extension, please feel free 
 
 ## License
 
-This extension is licensed under the MIT License, which means that anyone can use, modify, and distribute the code as long as they give credit to the original author. If you would like to port this extension to Firefox or any other browser, you are free to do so as long as you credit the original author and follow the terms of the MIT License.
+This extension is licensed under the MIT License, which means that anyone can use, modify, and distribute the code as long as they give credit to the original author. If you would like to port this extension to Firefox or any other browser, you are free to do so as long as you credit the original author and follow the terms of the MIT License. A firefox manifest has been provided, which details the minimum version of the browser needed to run v3 manifests.
