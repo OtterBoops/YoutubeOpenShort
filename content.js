@@ -29,22 +29,16 @@ const waitForElm = (container, selector) => {
   });
 };
 
-// Define a function that extracts the video ID the attrribute of the HTML element
-const getVideoId = () => {
-  let videoId = document
-    .querySelector('html')
-    .getAttribute('it-pathname')
-    .replace('/shorts/', '');
-  return videoId;
-};
-
 // Create a button element and add an event listener to open the video in a new tab
 const button = document.createElement('div');
 button.className =
   'yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-l yt-spec-button-shape-next--icon-button';
 button.innerHTML = icon;
 button.onclick = () => {
-  window.open('https://www.youtube.com/watch?v=' + getVideoId(), '_blank');
+  window.open(
+    'https://www.youtube.com/watch?v=' +
+      window.location.pathname.replace('/shorts/', '')
+  );
 };
 
 // Define a function that inserts the button into the YouTube sidebar
@@ -59,18 +53,16 @@ const createButton = () => {
   });
 };
 
-// Create a mutation observer that watches for changes to the DOM and calls createButton() when necessary
-const scrollObserver = new MutationObserver(() => {
-  document
-    .querySelector('html')
-    .getAttribute('it-pathname')
-    .startsWith('/shorts')
-    ? createButton()
-    : null;
+const shortsObserver = new MutationObserver(() => {
+  createButton();
 });
 
-scrollObserver.observe(document.querySelector('html[it-pathname]'), {
-  childList: false,
-  subtree: false,
-  attributes: true,
+waitForElm(document, '#shorts-inner-container').then(() => {
+  createButton();
+
+  shortsObserver.observe(document.querySelector('#shorts-inner-container'), {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['is-active'],
+  });
 });
