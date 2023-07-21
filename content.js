@@ -29,10 +29,13 @@ const waitForElm = (container, selector) => {
   });
 };
 
-// Define a function that extracts the video ID from a YouTube URL
-const getVideoId = (url) => {
-  let regex = /(youtu.*be.*)\/(watch\?v=|embed\/|v|shorts|)(.*?((?=[&#?])|$))/;
-  return regex.exec(url)[3];
+// Define a function that extracts the video ID the attrribute of the HTML element
+const getVideoId = () => {
+  let videoId = document
+    .querySelector('html')
+    .getAttribute('it-pathname')
+    .replace('/shorts/', '');
+  return videoId;
 };
 
 // Create a button element and add an event listener to open the video in a new tab
@@ -41,10 +44,7 @@ button.className =
   'yt-spec-button-shape-next yt-spec-button-shape-next--tonal yt-spec-button-shape-next--mono yt-spec-button-shape-next--size-l yt-spec-button-shape-next--icon-button';
 button.innerHTML = icon;
 button.onclick = () => {
-  window.open(
-    'https://www.youtube.com/watch?v=' + getVideoId(window.location.href),
-    '_blank'
-  );
+  window.open('https://www.youtube.com/watch?v=' + getVideoId(), '_blank');
 };
 
 // Define a function that inserts the button into the YouTube sidebar
