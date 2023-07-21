@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Youtube Shorts as Video",
   "description": "Open Youtube Shorts as a normal youtube video in a new tab. Replaces the short link with the watch&v=[video] link.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Ru",
   "icons": {
     "128": "icon.png"
@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "js": ["content.js"],
-      "matches": ["https://*.youtube.com/shorts/*"]
+      "matches": ["https://*.youtube.com/*"]
     }
   ]
 }
