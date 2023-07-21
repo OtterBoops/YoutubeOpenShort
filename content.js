@@ -61,14 +61,16 @@ const createButton = () => {
 
 // Create a mutation observer that watches for changes to the DOM and calls createButton() when necessary
 const scrollObserver = new MutationObserver(() => {
-  createButton();
+  document
+    .querySelector('html')
+    .getAttribute('it-pathname')
+    .startsWith('/shorts')
+    ? createButton()
+    : null;
 });
 
-scrollObserver.observe(document.querySelector('html'), {
+scrollObserver.observe(document.querySelector('html[it-pathname]'), {
   childList: false,
   subtree: false,
   attributes: true,
 });
-
-// Call createButton() once to initialize the button
-createButton();
